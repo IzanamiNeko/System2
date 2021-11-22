@@ -6,13 +6,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class DefaultConfigManager {
+public class MessagesConfigManager {
     public final File file;
 
     public final FileConfiguration config;
 
-    public DefaultConfigManager(){
-        this.file = new File("plugins/system/config.yml");
+    public MessagesConfigManager(){
+        this.file = new File("plugins/system/messages.yml");
         this.config = (FileConfiguration) YamlConfiguration.loadConfiguration(this.file);
         addDefaultStrings();
         checkIfExists();
@@ -31,8 +31,9 @@ public class DefaultConfigManager {
     }
 
     private void addDefaultStrings(){
-        this.config.addDefault("AntiCommand.Enabled", "true");
-        this.config.options().header("System-Plugin | DefaultConfigManager by IzanamiNeko");
+
+        this.config.addDefault("Message.nohelp", "[System] There is no such a Command");
+        this.config.options().header("System-Plugin | MessagesConfigManager by IzanamiNeko");
         this.config.options().copyDefaults(true);
         save();
     }
