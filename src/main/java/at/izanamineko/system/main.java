@@ -32,6 +32,7 @@ public class main extends JavaPlugin {
     public void loadListener(){
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new AntiCommand(), this);
+        pm.registerEvents(new ChatFormatting(), this);
 
     }
     public void loadCommands(){
