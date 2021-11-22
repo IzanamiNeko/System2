@@ -15,9 +15,9 @@ public class AntiCommand implements Listener {
     @EventHandler
     public void onCMD(PlayerCommandPreprocessEvent onCMD){
         Player p = onCMD.getPlayer();
-        if(this.dcm.getConfig().getString("System.AntiCommand.Enabled").equals("true"));
-        if(onCMD.getMessage().equals("/help system") && !p.isOp() || !p.hasPermission("System.AntiCommand")) {
-            String msg = this.mcm.getConfig().getString("System.Message.nohelp").replace("&", "§");
+        if(this.dcm.getConfig().getString("SettingsSystem.AntiCommand.Enabled").equals("true"));
+        if(onCMD.getMessage().equals("/help") && !p.isOp() || !p.hasPermission("System.AntiCommand")) {
+            String msg = this.mcm.getConfig().getString("MessageSystem.Message.nohelp").replace("&", "§");
             p.sendMessage(msg);
             onCMD.setCancelled(true);
         } else {

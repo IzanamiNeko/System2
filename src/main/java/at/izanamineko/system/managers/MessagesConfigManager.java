@@ -32,8 +32,9 @@ public class MessagesConfigManager {
 
     private void addDefaultStrings(){
 
-        this.config.addDefault("System.Message.nohelp", "[System] There is no such a Command");
-        this.config.addDefault("System.chat-format.format", "{prefix}{name}&r: {message}");
+        this.config.addDefault("MessageSystem.Message.nohelp", "[System] There is no such a Command");
+        this.config.addDefault("MessageSystem.HomeSystem.SetHome", "§6System §r| &cHome has been set");
+        this.config.addDefault("MessageSystem.HomeSystem.NewSetHome", "§6System §r| &cHome has been set");
         this.config.options().header("System-Plugin | MessagesConfigManager by IzanamiNeko");
         this.config.options().copyDefaults(true);
         save();

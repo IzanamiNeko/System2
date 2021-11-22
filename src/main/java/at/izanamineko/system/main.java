@@ -1,5 +1,6 @@
 package at.izanamineko.system;
 
+import at.izanamineko.system.cmd.HomeSystem;
 import at.izanamineko.system.eventhandler.AntiCommand;
 import at.izanamineko.system.managers.DefaultConfigManager;
 import at.izanamineko.system.managers.MessagesConfigManager;
@@ -20,6 +21,7 @@ public class main extends JavaPlugin {
     public void onEnable(){
         System.out.println(ChatColor.GREEN + "System-Plugin is starting!");
         createDirectory();
+        createHomesDir();
         loadCommands();
         loadListener();
     }
@@ -32,16 +34,21 @@ public class main extends JavaPlugin {
     public void loadListener(){
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new AntiCommand(), this);
-        pm.registerEvents(new ChatFormatting(), this);
 
     }
     public void loadCommands(){
-
+        getCommand("sethome").setExecutor(new HomeSystem());
     }
     public void createDirectory(){
-        File system = new File("system");
+        File system = new File("/plugins/system");
         if(!system.exists()){
             system.mkdir();
+        }
+    }
+    public void createHomesDir(){
+        File homes = new File("/plugins/system/homes");
+        if(!homes.exists()){
+            homes.mkdir();
         }
     }
 

@@ -31,8 +31,7 @@ public class DefaultConfigManager {
     }
 
     private void addDefaultStrings(){
-        this.config.addDefault("System.AntiCommand.Enabled", "true");
-        this.config.addDefault("System.chat-format.enabled", "true");
+        this.config.addDefault("SettingsSystem.AntiCommand.Enabled", "true");
         this.config.options().header("System-Plugin | DefaultConfigManager by IzanamiNeko");
         this.config.options().copyDefaults(true);
         save();
