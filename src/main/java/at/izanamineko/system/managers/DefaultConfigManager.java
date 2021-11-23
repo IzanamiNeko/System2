@@ -45,7 +45,7 @@ public class DefaultConfigManager {
         }
     }
 
-    public void load() {
+    public void loadDefaultConfig() {
         try {
             this.config.load(this.file);
         } catch (IOException|org.bukkit.configuration.InvalidConfigurationException iOException) {

@@ -1,6 +1,7 @@
 package at.izanamineko.system;
 
 import at.izanamineko.system.cmd.HomeSystem;
+import at.izanamineko.system.cmd.SystemCommand;
 import at.izanamineko.system.eventhandler.AntiCommand;
 import at.izanamineko.system.managers.DefaultConfigManager;
 import at.izanamineko.system.managers.MessagesConfigManager;
@@ -12,10 +13,8 @@ import java.io.File;
 
 public class main extends JavaPlugin {
 
-    main plugin;
-
-    private MessagesConfigManager mcm = new MessagesConfigManager();
-    private DefaultConfigManager dcm = new DefaultConfigManager();
+    private final MessagesConfigManager mcm = new MessagesConfigManager();
+    private final DefaultConfigManager dcm = new DefaultConfigManager();
 
     @Override
     public void onEnable(){
@@ -38,6 +37,7 @@ public class main extends JavaPlugin {
     }
     public void loadCommands(){
         getCommand("sethome").setExecutor(new HomeSystem());
+        getCommand("system").setExecutor(new SystemCommand());
     }
     public void createDirectory(){
         File system = new File("/plugins/system");
@@ -46,7 +46,7 @@ public class main extends JavaPlugin {
         }
     }
     public void createHomesDir(){
-        File homes = new File("/plugins/system/homes");
+        File homes = new File("/plugins/system/homes/");
         if(!homes.exists()){
             homes.mkdir();
         }

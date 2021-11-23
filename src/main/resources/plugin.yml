@@ -4,3 +4,5 @@ version: 0.1-SNAPSHOT
 commands:
   sethome:
     description: /sethome to set a home
+  system:
+    description: /system (reload/create) to reload the Configs or to create default Directory

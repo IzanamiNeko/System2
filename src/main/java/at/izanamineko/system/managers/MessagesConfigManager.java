@@ -33,8 +33,13 @@ public class MessagesConfigManager {
     private void addDefaultStrings(){
 
         this.config.addDefault("MessageSystem.Message.nohelp", "[System] There is no such a Command");
-        this.config.addDefault("MessageSystem.HomeSystem.SetHome", "§6System §r| &cHome has been set");
-        this.config.addDefault("MessageSystem.HomeSystem.NewSetHome", "§6System §r| &cHome has been set");
+        this.config.addDefault("MessageSystem.HomeSystem.SetHome", "[System] &cHome has been set");
+        this.config.addDefault("MessageSystem.HomeSystem.NewSetHome", "[System] &cHome has been set");
+        this.config.addDefault("MesssageSystem.SystemCommand.Message", "[System] &c/system <create/reload>");
+        this.config.addDefault("MesssageSystem.SystemCommand.Reload", "[System] &cThe System-Configs have been reloaded!");
+        this.config.addDefault("MessageSystem.SystemCommand.CreateHelp", "[System] &cUse /system create <directory> (for now system/homes)");
+        this.config.addDefault("MessageSystem.SystemCommand.HomeDir", "[System] &cHome-Directory has been created!");
+        this.config.addDefault("MessageSystem.SystemCommand.SystemDir", "[System] &cSystem-Directory has been created!");
         this.config.options().header("System-Plugin | MessagesConfigManager by IzanamiNeko");
         this.config.options().copyDefaults(true);
         save();
@@ -48,7 +53,7 @@ public class MessagesConfigManager {
         }
     }
 
-    public void load() {
+    public void loadMessageConfig() {
         try {
             this.config.load(this.file);
         } catch (IOException|org.bukkit.configuration.InvalidConfigurationException iOException) {
