@@ -63,4 +63,8 @@ public class SystemCommand implements CommandExecutor {
         }
     }
 
+    public void test(){
+
+    }
+
 }
