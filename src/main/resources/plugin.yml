@@ -1,6 +1,9 @@
 name: System
 main: at.izanamineko.system.main
 version: 0.1-SNAPSHOT
+
+softdepend:
+  - PlaceholderAPI
 commands:
   sethome:
     description: /sethome to set a home

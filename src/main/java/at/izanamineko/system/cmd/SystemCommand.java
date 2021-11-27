@@ -1,8 +1,8 @@
 package at.izanamineko.system.cmd;
 
-import at.izanamineko.system.main;
-import at.izanamineko.system.managers.DefaultConfigManager;
-import at.izanamineko.system.managers.MessagesConfigManager;
+import at.izanamineko.system.utils.DefaultConfigManager;
+import at.izanamineko.system.utils.MessagesConfigManager;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,49 +22,49 @@ public class SystemCommand implements CommandExecutor {
             /*String msg = this.mcm.getConfig().getString("MesssageSystem.SystemCommand.Message").replace("&", "§");
             p.sendMessage(msg);*/
 
-            if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+            if (args[0].equalsIgnoreCase("reload")) {
                 mcm.loadMessageConfig();
                 dcm.loadDefaultConfig();
-                String msg1 = this.mcm.getConfig().getString("MesssageSystem.SystemCommand.Reload").replace("&", "§");
-                p.sendMessage(msg1);
+                String msg1 = this.mcm.getConfig().getString("MesssageSystem.SystemCommand.Reload");
+                String altColor = ChatColor.translateAlternateColorCodes('&', msg1);
+                p.sendMessage(altColor);
                 return true;
             }
-            if (args.length == 1 && args[0].equalsIgnoreCase("create")) {
-                String msg2 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.CreateHelp").replace("&", "§");
-                p.sendMessage(msg2);
-                return true;
-            }
-            if (args.length == 2 && args[0].equalsIgnoreCase("homes")) {
-                createHomesDir();
-                String msg3 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.HomeDir").replace("&", "§");
-                p.sendMessage(msg3);
-                return true;
-            }
-            if (args.length == 2 && args[0].equalsIgnoreCase("system")) {
-                createDirectory();
-                String msg4 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.SystemDir").replace("&", "§");
-                p.sendMessage(msg4);
-                return true;
-            }
-        }
-        return true;
-    }
+            if (args[0].equalsIgnoreCase("create")) {
+                String msg2 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.CreateHelp");
+                String altColor2 = ChatColor.translateAlternateColorCodes('&', msg2);
+                p.sendMessage(altColor2);
 
-    public void createDirectory(){
-        File system = new File("/plugins/system");
-        if(!system.exists()){
-            system.mkdir();
+                if (args[1].equalsIgnoreCase("homes")) {
+                    createHomesDir();
+                    String msg3 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.HomeDir");
+                    String altColor3 = ChatColor.translateAlternateColorCodes('&', msg3);
+                    p.sendMessage(altColor3);
+                }
+                if (args[1].equalsIgnoreCase("system")) {
+                    createBugsDir();
+                    String msg4 = this.mcm.getConfig().getString("MessageSystem.SystemCommand.BugsDir");
+                    String altColor4 = ChatColor.translateAlternateColorCodes('&', msg4);
+                    p.sendMessage(altColor4);
+                }
+                return true;
+            }
+                return true;
+            }
+        return true;
         }
-    }
+
+
     public void createHomesDir(){
         File homes = new File("/plugins/system/homes/");
         if(!homes.exists()){
             homes.mkdir();
         }
     }
-
-    public void test(){
-
+    public void createBugsDir(){
+        File bugs = new File("/plugins/system/bugs");
+        if(!bugs.exists()){
+            bugs.mkdir();
+        }
     }
-
 }

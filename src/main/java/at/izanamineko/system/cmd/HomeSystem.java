@@ -1,7 +1,7 @@
 package at.izanamineko.system.cmd;
 
-import at.izanamineko.system.managers.DefaultConfigManager;
-import at.izanamineko.system.managers.MessagesConfigManager;
+import at.izanamineko.system.utils.DefaultConfigManager;
+import at.izanamineko.system.utils.MessagesConfigManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

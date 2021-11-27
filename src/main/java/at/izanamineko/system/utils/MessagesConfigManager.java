@@ -1,4 +1,4 @@
-package at.izanamineko.system.managers;
+package at.izanamineko.system.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -39,7 +39,8 @@ public class MessagesConfigManager {
         this.config.addDefault("MesssageSystem.SystemCommand.Reload", "[System] &cThe System-Configs have been reloaded!");
         this.config.addDefault("MessageSystem.SystemCommand.CreateHelp", "[System] &cUse /system create <directory> (for now system/homes)");
         this.config.addDefault("MessageSystem.SystemCommand.HomeDir", "[System] &cHome-Directory has been created!");
-        this.config.addDefault("MessageSystem.SystemCommand.SystemDir", "[System] &cSystem-Directory has been created!");
+        this.config.addDefault("MessageSystem.SystemCommand.BugsDir", "[System] &cBugs-Directory has been created!");
+        this.config.addDefault("MessageSystem.Chat-Format.Format", "%luckperms_prefix% %player_name%: ");
         this.config.options().header("System-Plugin | MessagesConfigManager by IzanamiNeko");
         this.config.options().copyDefaults(true);
         save();

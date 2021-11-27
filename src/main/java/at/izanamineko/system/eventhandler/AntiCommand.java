@@ -1,7 +1,7 @@
 package at.izanamineko.system.eventhandler;
 
-import at.izanamineko.system.managers.DefaultConfigManager;
-import at.izanamineko.system.managers.MessagesConfigManager;
+import at.izanamineko.system.utils.DefaultConfigManager;
+import at.izanamineko.system.utils.MessagesConfigManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
